@@ -184,15 +184,25 @@ class ChallengeSubmitView(APIView):
             note='Challenge submitted by citizen.',
         )
 
-        # ── Run AI pipeline (async-safe: errors never bubble up) ──
-        run_ai_pipeline(challenge)
+        # ── Run AI pipeline and duplicate detection in background thread ──
+        # This prevents the frontend from timing out while waiting for Gemini API
+        import threading
+        
+        def run_background_tasks(ch_id):
+            try:
+                # Need to run setup to avoid "Apps aren't loaded yet" in threads sometimes, but django is already loaded here
+                ch = Challenge.objects.get(id=ch_id)
+                run_ai_pipeline(ch)
+                ch.refresh_from_db()
+                from .duplicate_detection import detect_duplicates
+                detect_duplicates(ch)
+            except Exception as e:
+                logger.error(f"Background AI task failed for challenge {ch_id}: {e}")
 
-        # Refresh from DB to get AI-updated fields
-        challenge.refresh_from_db()
-
-        # ── Run duplicate detection (needs category to be set first) ──
-        from .duplicate_detection import detect_duplicates
-        detect_duplicates(challenge)
+        # Start the background thread
+        thread = threading.Thread(target=run_background_tasks, args=(challenge.id,))
+        thread.daemon = True
+        thread.start()
 
         return Response(
             ChallengeDetailSerializer(challenge, context={'request': request}).data,
