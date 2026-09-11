@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: samadhanx-backend
+    env: python
+    region: singapore # or ohio/frankfurt
+    rootDir: backend
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn config.wsgi:application"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: DEBUG
+        value: "False"
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ALLOWED_HOSTS
+        value: "samadhanx-backend.onrender.com" # update if you add custom domain
+      - key: CORS_ALLOWED_ORIGINS
+        value: "https://your-cloudflare-pages-domain.pages.dev" # UPDATE THIS LATER
+      - key: DATABASE_URL
+        fromDatabase:
+          name: samadhanx-db
+          property: connectionString
+
+databases:
+  - name: samadhanx-db
+    databaseName: samadhanx
+    user: samadhan
+    region: singapore
