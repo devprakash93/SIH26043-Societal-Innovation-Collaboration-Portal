@@ -17,7 +17,7 @@ services:
       - key: ALLOWED_HOSTS
         value: "samadhanx-backend.onrender.com" # update if you add custom domain
       - key: CORS_ALLOWED_ORIGINS
-        value: "https://your-cloudflare-pages-domain.pages.dev" # UPDATE THIS LATER
+        value: "https://sih26043-societal-innovation-collaboration-portal.devprakashsahoo128.workers.dev"
       - key: DATABASE_URL
         fromDatabase:
           name: samadhanx-db
