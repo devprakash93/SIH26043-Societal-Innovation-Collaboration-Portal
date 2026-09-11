@@ -2,6 +2,7 @@ services:
   - type: web
     name: samadhanx-backend
     env: python
+    plan: free
     region: singapore # or ohio/frankfurt
     rootDir: backend
     buildCommand: "./build.sh"
@@ -26,4 +27,5 @@ databases:
   - name: samadhanx-db
     databaseName: samadhanx
     user: samadhan
+    plan: free
     region: singapore
