@@ -136,14 +136,52 @@ export default function Login() {
             <Link to="/register">Create Account</Link>
           </div>
 
-          <div className="demo-credentials">
-            <strong>Demo Credentials</strong>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px 16px' }}>
-              <span>Admin: <code>admin / Demo@1234</code></span>
-              <span>Citizen: <code>citizen1 / Demo@1234</code></span>
-              <span>HEI: <code>hei_spoc1 / Demo@1234</code></span>
-              <span>Faculty: <code>faculty1 / Demo@1234</code></span>
-              <span>Industry: <code>industry1 / Demo@1234</code></span>
+          <div className="demo-credentials" style={{ marginTop: '32px', textAlign: 'left', background: '#f8fafc', border: '1px solid #e2e8f0' }}>
+            <h3 style={{ fontSize: '14px', marginBottom: '12px', color: '#0f5132', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              🎯 SIH Evaluation Workflow
+            </h3>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '13px', color: '#475569' }}>
+              
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+                <div style={{ background: '#e2e8f0', color: '#475569', borderRadius: '50%', width: 24, height: 24, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', flexShrink: 0 }}>1</div>
+                <div>
+                  <strong>Citizen:</strong> <code>citizen1 / Demo@1234</code><br/>
+                  Log in as a citizen to report a new problem in your district and upload evidence.
+                </div>
+              </div>
+
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+                <div style={{ background: '#e2e8f0', color: '#475569', borderRadius: '50%', width: 24, height: 24, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', flexShrink: 0 }}>2</div>
+                <div>
+                  <strong>Gov Admin:</strong> <code>admin / Demo@1234</code><br/>
+                  Review the citizen's problem, verify the AI analysis, and Route it to a University.
+                </div>
+              </div>
+
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+                <div style={{ background: '#e2e8f0', color: '#475569', borderRadius: '50%', width: 24, height: 24, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', flexShrink: 0 }}>3</div>
+                <div>
+                  <strong>HEI SPOC:</strong> <code>hei_spoc1 / Demo@1234</code><br/>
+                  Accept the routed challenge and assign it to a Faculty Mentor.
+                </div>
+              </div>
+
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+                <div style={{ background: '#e2e8f0', color: '#475569', borderRadius: '50%', width: 24, height: 24, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', flexShrink: 0 }}>4</div>
+                <div>
+                  <strong>Faculty Mentor:</strong> <code>faculty1 / Demo@1234</code><br/>
+                  Form a student team to solve the problem and update project milestones.
+                </div>
+              </div>
+
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+                <div style={{ background: '#e2e8f0', color: '#475569', borderRadius: '50%', width: 24, height: 24, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', flexShrink: 0 }}>5</div>
+                <div>
+                  <strong>Industry Partner:</strong> <code>industry1 / Demo@1234</code><br/>
+                  Explore active projects and offer funding, mentorship, or pilot support.
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
