@@ -488,7 +488,5 @@ npm run preview                     # Preview production build locally
 ---
 
 <div align="center">
-
 **Built for Smart India Hackathon 2026**
-
 </div>
